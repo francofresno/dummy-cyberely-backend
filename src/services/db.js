@@ -39,4 +39,16 @@ const obtenerComentariosDe = async (usuarioId) => {
   return clientResult;
 };
 
-module.exports = { crearUsuario, crearComentario, obtenerComentariosDe };
+const obtenerUsuarioPorNombre = async (nombre) => {
+  const clientResult = await hacerQuery(`SELECT * FROM usuarios WHERE nombre = '${nombre}'`);
+  return clientResult;
+};
+
+const cambiarContraseña = async (contraseña, usuarioId) => {
+  const clientResult = await hacerQuery(
+    `UPDATE usuarios SET password = '${contraseña}' WHERE usuario_id = ${usuarioId}`
+  );
+  return clientResult;
+};
+
+module.exports = { crearUsuario, crearComentario, obtenerComentariosDe, obtenerUsuarioPorNombre, cambiarContraseña };
