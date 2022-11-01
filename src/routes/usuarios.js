@@ -15,8 +15,8 @@ router.post("/crearUsuario", async function (req, res) {
   res.status(200).send(crearResponse(response));
 });
 
-router.post("/comentarios", async function (req, res) {
-  const { usuarioId, comentario, social, nombre } = req.body;
+router.get("/hacerComentario", async function (req, res) {
+  const { usuarioId, comentario, social, nombre } = req.query;
   const response = await crearComentario(usuarioId, comentario, social, nombre);
   res.status(200).send(crearResponse(response));
 });
