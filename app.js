@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const usuarios = require("./src/routes/usuarios");
+const busqueda = require("./src/routes/busqueda");
 
 const app = express();
 const PORT = 5000;
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/usuarios", usuarios);
+app.use("/busqueda", busqueda);
 
 app.listen(PORT, function () {
   console.log(`Server started in port ${PORT}`);
