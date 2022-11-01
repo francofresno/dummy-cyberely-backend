@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const usuarios = require("./src/routes/usuarios");
 const busqueda = require("./src/routes/busqueda");
 
