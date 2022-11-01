@@ -16,20 +16,21 @@ const whitelist = ["http://localhost:3000", "https://cyberely-front.onrender.com
 //   },
 //   credentials: true,
 // };
-app.use(
-  cors({
-    origin: "https://cyberely-front.onrender.com",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://cyberely-front.onrender.com",
+//   })
+// );
 // app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use((req, res, next) => {
-  res.append("Access-Control-Allow-Origin", "*");
+  res.append("Access-Control-Allow-Origin", "https://cyberely-front.onrender.com");
   res.append("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
-  res.append("Access-Control-Allow-Headers", "X-Requested-With,content-type");
+  // res.append("Access-Control-Allow-Headers", "X-Requested-With,content-type");
+  res.append("Access-Control-Allow-Headers", "*");
   res.append("Access-Control-Allow-Credentials", true);
   res.append("Content-Type", "application/json");
   next();
